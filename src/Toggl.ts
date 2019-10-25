@@ -1,3 +1,7 @@
+const getToggl = (apiToken: string) => {
+    return new Toggl_(apiToken);
+};
+
 interface TimeEntries {
     id?: number;
     description: string;
@@ -18,7 +22,7 @@ interface ResponseTimeEntries {
     data: TimeEntries;
 }
 
-class Toggl {
+class Toggl_ {
 
     private apiToken: string;
 
