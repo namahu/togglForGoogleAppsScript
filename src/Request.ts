@@ -16,14 +16,15 @@ interface RequestOptions {
  * @param apiToken - Toggl API token
  */
 class TogglRequest_ {
-
+    private apiToken: string;
     private options: RequestOptions;
 
     constructor(apiToken: string) {
+        this.apiToken = Utilities.base64Encode(`${apiToken}:api_token`);
         this.options = {
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `${apiToken}:api_token`
+                'Authorization': `Basic ${this.apiToken}`
             },
             muteHttpExceptions: true
         }
