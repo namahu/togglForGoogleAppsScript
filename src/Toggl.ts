@@ -63,4 +63,9 @@ class Toggl_ {
         return getAllWorkspaces_(path, req);
     }
 
+    getCurrentUser = (withRelatedData: boolean = false) => {
+        const req = new TogglRequset_(this.apiToken);
+        return getCurrentUser_(withRelatedData, req);
+    }
+
 };
