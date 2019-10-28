@@ -64,7 +64,7 @@ class Toggl_ {
     }
 
     getCurrentUser = (withRelatedData: boolean = false) => {
-        const req = new TogglRequset_(this.apiToken);
+        const req = new TogglRequest_(this.apiToken);
         return getCurrentUser_(withRelatedData, req);
     }
 
