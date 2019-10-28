@@ -32,7 +32,7 @@ class TogglRequest_ {
 
     private baseURL: string = 'https://www.toggl.com/api/v8/';
 
-    private fetchTimeEntryToToggl(path: string, options: RequestOptions): any {
+    private fetchToggl(path: string, options: RequestOptions): any {
         const url: string = `${this.baseURL}${path}`;
         const res: GoogleAppsScript.URL_Fetch.HTTPResponse = UrlFetchApp.fetch(url, options);
         const resObj: any = JSON.parse(res.getContentText());
