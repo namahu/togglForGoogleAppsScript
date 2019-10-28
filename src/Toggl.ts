@@ -57,4 +57,15 @@ class Toggl_ {
         return this.getRunningTimeEntry_(req);
     }
 
+    getAllWorkspaces = () => {
+        const path: string =  'workspaces';
+        const req = new TogglRequest_(this.apiToken);
+        return getAllWorkspaces_(path, req);
+    }
+
+    getCurrentUser = (withRelatedData: boolean = false) => {
+        const req = new TogglRequset_(this.apiToken);
+        return getCurrentUser_(withRelatedData, req);
+    }
+
 };
