@@ -53,7 +53,7 @@ class TogglRequest_ {
         this.options.method = 'post';
 
         if (obj) {
-            this.options.payload = JSON.stringify(obj);
+            this.options.payload = JSON.stringify({time_entry: obj});
         }
         return this.fetchTimeEntryToToggl(path, this.options);
     }
