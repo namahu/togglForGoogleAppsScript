@@ -5,7 +5,7 @@ const getToggl = (apiToken: string) => {
 interface TimeEntries {
     id?: number;
     description: string;
-    wid: number;
+    wid?: number;
     pid?: number;
     tid?: number;
     billable?: boolean;
