@@ -5,7 +5,7 @@ const getToggl = (apiToken: string) => {
 interface TimeEntries {
     id?: number;
     description: string;
-    wid: number;
+    wid?: number;
     pid?: number;
     tid?: number;
     billable?: boolean;
@@ -61,6 +61,11 @@ class Toggl_ {
         const path: string =  'workspaces';
         const req = new TogglRequest_(this.apiToken);
         return getAllWorkspaces_(path, req);
+    }
+
+    getCurrentUser = (withRelatedData: boolean = false) => {
+        const req = new TogglRequest_(this.apiToken);
+        return getCurrentUser_(withRelatedData, req);
     }
 
 };

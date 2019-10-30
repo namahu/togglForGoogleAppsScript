@@ -32,7 +32,7 @@ class TogglRequest_ {
 
     private baseURL: string = 'https://www.toggl.com/api/v8/';
 
-    private fetchTimeEntryToToggl(path: string, options: RequestOptions): any {
+    private fetchToggl(path: string, options: RequestOptions): any {
         const url: string = `${this.baseURL}${path}`;
         const res: GoogleAppsScript.URL_Fetch.HTTPResponse = UrlFetchApp.fetch(url, options);
         const resObj: any = JSON.parse(res.getContentText());
@@ -44,22 +44,34 @@ class TogglRequest_ {
         return resObj;
     }
 
+    /**
+     * get request　to toggl
+     *
+     * @param path - request path
+     * @returns - toggl object
+     */
     get(path: string) {
         this.options.method = 'get';
-        return this.fetchTimeEntryToToggl(path, this.options);
+        return this.fetchToggl(path, this.options);
     }
 
-    post(path: string, obj: TimeEntries) {
+    /**
+     * post request to toggl
+     *
+     * @param path - request path
+     * @param payload - Payload to post to Toggl
+     */
+    post(path: string, payload: object) {
         this.options.method = 'post';
 
-        if (obj) {
-            this.options.payload = JSON.stringify(obj);
+        if (payload) {
+            this.options.payload = JSON.stringify({time_entry: payload});
         }
-        return this.fetchTimeEntryToToggl(path, this.options);
+        return this.fetchToggl(path, this.options);
     }
 
     put(path: string) {
         this.options.method = 'put';
-        return this.fetchTimeEntryToToggl(path, this.options);
+        return this.fetchToggl(path, this.options);
     }
 }
