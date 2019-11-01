@@ -21,3 +21,19 @@ The following APIs are currently supported:
 1. Click the "Add" button.
 1. Select the latest version.
 1. Click the "Save" button.
+
+## Usage
+
+First, get toggl object with API token.
+
+```javascript
+const toggl = Toggl.getToggl('toggl api token');
+
+```
+
+### Start time entry
+
+```javascript
+
+
+```
