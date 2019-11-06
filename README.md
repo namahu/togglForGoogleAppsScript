@@ -57,6 +57,8 @@ toggl.startTimeEntry(timeEntries);
 
 #### Stop time entry
 
+Stop running time tracking
+
 ```javascript
 
 toggl.stopTimeEntry();
@@ -77,7 +79,15 @@ const runningTimeEntry = toggl.getRunningTimeEntry();
 
 ```javascript
 
-const currentUser = toggl.getCurrentUser();
+// Only current user data
+const user = toggl.getCurrentUser();
+
+```
+
+```javascript
+
+// Current user data and related data
+const user = toggl.getCurrentUserWithRelatedData();
 
 ```
 
